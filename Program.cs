@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Workout.Data;
 namespace Workout
 {
     public class Program
@@ -5,6 +8,8 @@ namespace Workout
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<WorkoutContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("WorkoutContext") ?? throw new InvalidOperationException("Connection string 'WorkoutContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();
