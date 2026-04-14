@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Workout.Data;
 using Workout.Model;
 
 namespace Workout.Pages.Exercises
@@ -23,6 +17,7 @@ namespace Workout.Pages.Exercises
         [BindProperty]
         public Exercise Exercise { get; set; } = default!;
 
+        public List<string> TypeList { get; set; } = new List<string>();
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,11 +25,12 @@ namespace Workout.Pages.Exercises
                 return NotFound();
             }
 
-            var exercise =  await _context.Exercise.FirstOrDefaultAsync(m => m.Id == id);
+            var exercise = await _context.Exercise.FirstOrDefaultAsync(m => m.Id == id);
             if (exercise == null)
             {
                 return NotFound();
             }
+            TypeList = Enum.GetNames(typeof(Workout.Model.Type)).ToList();
             Exercise = exercise;
             return Page();
         }

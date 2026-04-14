@@ -18,5 +18,31 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: url('../images/transparentCrossfit.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+a:link, a:active, a:visited, a:hover {
+    color: maroon;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 750;
+}
+
+h1 {
+    -webkit-text-stroke-color: white;
+    -webkit-text-fill-color: maroon;
+    text-shadow: 1px 1px black;
+    font-weight: 750;
+}
+
+th {
+    font-size: 1.2em;
+}
+
+.form-group {
+    font-size: 1.2em;
 }

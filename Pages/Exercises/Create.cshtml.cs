@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Workout.Data;
 using Workout.Model;
 
 namespace Workout.Pages.Exercises
@@ -18,9 +12,11 @@ namespace Workout.Pages.Exercises
         {
             _context = context;
         }
+        public List<string> TypeList { get; set; } = new List<string>();
 
         public IActionResult OnGet()
         {
+            TypeList = Enum.GetNames(typeof(Workout.Model.Type)).ToList();
             return Page();
         }
 

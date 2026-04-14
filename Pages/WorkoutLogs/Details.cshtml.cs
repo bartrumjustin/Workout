@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Workout.Data;
 using Workout.Model;
 
 namespace Workout.Pages.WorkoutLogs
@@ -28,8 +23,11 @@ namespace Workout.Pages.WorkoutLogs
                 return NotFound();
             }
 
-            var workoutlog = await _context.WorkoutLog.FirstOrDefaultAsync(m => m.Id == id);
-
+            //var workoutlog = await _context.WorkoutLog.FirstOrDefaultAsync(m => m.Id == id);
+            var workoutlog = await _context.WorkoutLog
+                .Include(w => w.Exercise)
+                .Include(w => w.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (workoutlog is not null)
             {
                 WorkoutLog = workoutlog;

@@ -2,13 +2,12 @@
 @model Workout.Pages.Exercises.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Exercise Details";
 }
-
-<h1>Details</h1>
+<div class="bg-opacity-50 bg-light p-3">
+<h1>Exercise Details</h1>
 
 <div>
-    <h4>Exercise</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -60,6 +59,7 @@
             @Html.DisplayFor(model => model.Exercise.Duration)
         </dd>
     </dl>
+</div>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Exercise.Id">Edit</a> |

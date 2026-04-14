@@ -2,13 +2,13 @@
 @model Workout.Pages.Users.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Member Details";
 }
-
-<h1>Details</h1>
+<div class="bg-opacity-50 bg-light p-3">
+<h1>Member Details</h1>
 
 <div>
-    <h4>User</h4>
+    
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -24,6 +24,7 @@
             @Html.DisplayFor(model => model.User.Email)
         </dd>
     </dl>
+</div>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.User.Id">Edit</a> |

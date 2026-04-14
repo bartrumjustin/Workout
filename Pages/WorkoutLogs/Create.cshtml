@@ -2,12 +2,12 @@
 @model Workout.Pages.WorkoutLogs.CreateModel
 
         @{
-        ViewData["Title"] = "Create";
+        ViewData["Title"] = "Create Workout";
         }
+<div class="bg-opacity-50 bg-light p-3">
+        <h1>Create Workout</h1>
         
-        <h1>Create</h1>
-        
-    <h4>WorkoutLog</h4>
+    
     <hr />
     <div class="row">
     <div class="col-md-4">
@@ -28,7 +28,7 @@
                 <select asp-for="WorkoutLog.ExerciseId" class ="form-control" asp-items="ViewBag.ExerciseId" ></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-outline-dark" />
             </div>
         </form>
     </div>
@@ -37,7 +37,7 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

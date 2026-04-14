@@ -2,12 +2,12 @@
 @model Workout.Pages.Exercises.CreateModel
 
         @{
-        ViewData["Title"] = "Create";
+        ViewData["Title"] = "Create Exercise";
         }
+<div class="bg-opacity-50 bg-light p-3">
+        <h1>Create Exercise</h1>
         
-        <h1>Create</h1>
-        
-    <h4>Exercise</h4>
+    
     <hr />
     <div class="row">
     <div class="col-md-4">
@@ -19,9 +19,20 @@
                 <input asp-for="Exercise.Name" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Exercise.Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label asp-for="Exercise.Type" class="control-label"></label>
                 <input asp-for="Exercise.Type" class="form-control" />
+                <span asp-validation-for="Exercise.Type" class="text-danger"></span>
+            </div>-->
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" asp-for="Exercise.Type">
+                    <option value="">Select Type</option>
+                    @foreach (var type in Model.TypeList)
+                    {
+                        <option value="@type">@type</option>
+                    }
+                </select>
                 <span asp-validation-for="Exercise.Type" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,7 +66,7 @@
                 <span asp-validation-for="Exercise.Duration" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-outline-dark" />
             </div>
         </form>
     </div>
@@ -64,7 +75,7 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

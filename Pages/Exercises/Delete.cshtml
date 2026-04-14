@@ -2,10 +2,10 @@
 @model Workout.Pages.Exercises.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Exercise";
 }
-
-<h1>Delete</h1>
+<div class="bg-opacity-50 bg-light p-3">
+<h1>Delete Exercise</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -67,4 +67,5 @@
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>
+</div>
 </div>
